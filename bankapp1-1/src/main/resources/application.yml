@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet: 
+    encoding:
+      charset: utf-8
+      force: true
+      
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  datasource: 
+    url: jdbc:h2:mem:testdb;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: ma
+    password: 
+  sql:
+    init:
+      schema-locations:
+      - classpath:db/table.sql
+      data-locations:
+      - classpath:db/data.sql
+      
+  h2:
+    console: 
+      enabled: true
+  output: 
+    ansi: 
+      enabled: always
+      
+mybatis: 
+  mapper-locations:
+  - classpath:mapper/**.xml   # classpath가 바라보는 곳: resources
+  configuration:
+    map-underscore-to-camel-case: true  #매핑을 하는데 언더 스코어를 카멜노테이션으로 바꾸겠다.
+     
+ 
